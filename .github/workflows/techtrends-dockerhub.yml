@@ -1,13 +1,12 @@
-name: TechTrends - Package with Docker
-
-
 on:
   push:
     branches: [ main ]
 
+name: TechTrends - Package with Docker
+
  
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       -
