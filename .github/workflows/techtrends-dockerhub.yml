@@ -42,8 +42,5 @@ jobs:
           file: ./project/Dockerfile
           platforms: linux/amd64
           push: true
-<<<<<<< HEAD
           tags: goleng/techtrends:latest
-=======
-          tags: goleng/python-helloworld:latest
->>>>>>> e2f4e05d6bbf69235e8bf2cf93d7c27a0236d424
+
