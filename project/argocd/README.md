@@ -1,3 +1,5 @@
 ## ArgoCD Manifests 
 
-Place the ArgoCD manifests in this directory.
+ArgoCD Manifest files for:
+ - *prod* namespace
+ - *staging* namespace

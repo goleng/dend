@@ -1,3 +1,3 @@
 ## Screenshots 
 
-Place any project screenshots in this directory.
+Contains all project related files during the course.
