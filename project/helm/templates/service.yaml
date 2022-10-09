@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Service
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   name: techtrends
   namespace: {{ .Values.namespace.name }} 
