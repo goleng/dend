@@ -7,7 +7,6 @@ metadata:
   name: techtrends-latest
   namespace: {{ .Values.namespace.name }} 
 spec:
-  replicas: {{ .Values.replicaCount }} 
   ports:
   - port: {{ .Values.service.port }} 
     protocol: TCP
