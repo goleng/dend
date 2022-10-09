@@ -16,4 +16,7 @@ spec:
     tag: latest
   type: {{ .Values.service.type }} 
 
-resources: {{ .Values.resources | toYaml | nindent 2}}
+spec:
+  replicas: {{ .Values.replicaCount }} 
+  resources: 
+{{ .Values.resources | toYaml | nindent 2}}
