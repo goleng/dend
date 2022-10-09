@@ -1,13 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: techtrends
+  labels:
+    app: techtrends
+    tag: latest
+  name: techtrends-latest
   namespace: {{ .Values.namespace.name }} 
 spec:
   replicas: {{ .Values.replicaCount }} 
-  image:
-  - pullPolicy: {{ .Values.image.pullPolicy }}
-  ports:
-  - port: {{ .Values.service.port }}
-    protocol:  {{ .Values.service.protocol }}
-    targetPort:  {{ .Values.service.targetPort }}
+  selector:
+    matchLabels:
+      app: techtrends
+      tag: latest
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: techtrends
+        tag: latest
+    spec:
+      containers:
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: techtrends-latest
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
