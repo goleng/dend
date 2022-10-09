@@ -13,10 +13,4 @@ spec:
   - port: {{ .Values.service.port }}
     protocol:  {{ .Values.service.protocol }}
     targetPort:  {{ .Values.service.targetPort }}
-  resources: 
-    requests:
-    - cpu: {{ .Values.resources.requests.cpu }}
-      memory: {{ .Values.resources.requests.memory }}
-    limits: 
-    - memory: {{ .Values.resources.limits.memory }}
-      cpu: {{ .Values.resources.limits.cpu }}
+  resources: {{ .Values.resources | toYaml | nindent 2}}
