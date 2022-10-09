@@ -4,14 +4,15 @@ metadata:
   labels:
     app: techtrends
     tag: latest
-  name: techtrends
+  name: techtrends-latest
   namespace: {{ .Values.namespace.name }} 
 spec:
   replicas: {{ .Values.replicaCount }} 
   ports:
-  - port: {{ .Values.service.port }}
-    protocol:  {{ .Values.service.protocol }}
-    targetPort:  {{ .Values.service.targetPort }}
+  - port: {{ .Values.service.port }} 
+    protocol: TCP
+    targetPort: {{ .Values.service.port }}
   selector:
     app: techtrends
     tag: latest
+  type: {{ .Values.service.type }} 
