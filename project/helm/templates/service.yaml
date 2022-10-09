@@ -15,4 +15,11 @@ spec:
     app: techtrends
     tag: latest
   type: {{ .Values.service.type }} 
-  resources: {{ .Values.resources | toYaml | nindent 2}}
+
+resources: 
+    requests: 
+      cpu: {{ .Values.resources.requests.cpu }} 
+      memory: {{ .Values.resources.requests.memory }}
+    limits: 
+      cpu: {{ .Values.resources.limits.cpu }} 
+      memory: {{ .Values.resources.limits.memory }}
