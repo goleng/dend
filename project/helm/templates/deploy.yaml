@@ -7,6 +7,7 @@ metadata:
   namespace: {{ .Values.namespace.name }} 
 spec:
   replicas: {{ .Values.replicaCount }} 
+  resources: {{toYaml .Values.resources | indent 12 }}
   selector:
     matchLabels:
       app: techtrends
@@ -18,4 +19,3 @@ spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         PullPolicy: {{ .Values.image.pullPolicy }}
-      resources: {{toYaml .Values.resources | indent 12 }}
