@@ -11,4 +11,3 @@ spec:
   - port: {{ .Values.service.port }}
     protocol:  {{ .Values.service.protocol }}
     targetPort:  {{ .Values.service.targetPort }}
-  resources: {{ .Values.resources | toYaml | nindent 2}}
